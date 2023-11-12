@@ -1,5 +1,7 @@
 const containerEl = document.querySelector(".container");
 const btn=document.querySelector(".btn");
+let color =100;
+let inc=true;
 
 for (let i = 0; i < (16**2); i++) {
     const divAppendEl = document.createElement("div");
@@ -9,7 +11,7 @@ for (let i = 0; i < (16**2); i++) {
 let gridCellsEls = document.querySelectorAll(".grid-cell");
 gridCellsEls.forEach((gridCellEl)=>{
     gridCellEl.addEventListener("mouseover",(event)=>{
-        event.target.style.backgroundColor="#ff69b4";
+        event.target.style.backgroundColor=`rgb(${color},${color},${color})`;
     })
 })
 
@@ -27,7 +29,11 @@ btn.addEventListener("click",(event)=>{
             divAppendEl.classList.add("grid-cell");
             divAppendEl.style=`height:${90/userSelectedGridSize}vh`;
             divAppendEl.addEventListener("mouseover",(event)=>{
-                event.target.style.backgroundColor="#ff69b4";
+                event.target.style.backgroundColor=`rgb(${color},${color},${color})`;
+                if(color<=255&&color>=0&&inc) color++;
+                else if(color<=255&&!inc) color--;
+                if(color===0){inc=true;}
+                if(color===255){inc=false;}
             })
             containerEl.appendChild(divAppendEl);
         }
