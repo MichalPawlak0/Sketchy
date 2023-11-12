@@ -10,7 +10,6 @@ let gridCellsEls = document.querySelectorAll(".grid-cell");
 gridCellsEls.forEach((gridCellEl)=>{
     gridCellEl.addEventListener("mouseover",(event)=>{
         event.target.style.backgroundColor="#ff69b4";
-        console.log("mouseover!")
     })
 })
 
@@ -33,6 +32,6 @@ btn.addEventListener("click",(event)=>{
             containerEl.appendChild(divAppendEl);
         }
     } else {
-        alert("Please select size between 0 and 100")
+        alert("Please select size between 0 and 100");
     }
 })
