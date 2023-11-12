@@ -10,12 +10,12 @@
 }
 
 .grid-cell{
-    height: 5.88vh;
+    height: 5.625vh;
     border: #f7a2ee solid 5px;
     border-radius: 20px;
 }
-.reset-btn{
-    height: 5.88vh;
+.btn{
+    height: 10vh;
     width: 20vw;
     margin: 0 40%;
 }

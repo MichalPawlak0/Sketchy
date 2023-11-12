@@ -6,9 +6,33 @@ for (let i = 0; i < (16**2); i++) {
     divAppendEl.classList.add("grid-cell")
     containerEl.appendChild(divAppendEl);
 }
-const gridCellsEls = document.querySelectorAll(".grid-cell")
+let gridCellsEls = document.querySelectorAll(".grid-cell");
 gridCellsEls.forEach((gridCellEl)=>{
     gridCellEl.addEventListener("mouseover",(event)=>{
-        event.target.style.backgroundColor="#3af165"
+        event.target.style.backgroundColor="#ff69b4";
+        console.log("mouseover!")
     })
+})
+
+btn.addEventListener("click",(event)=>{
+    const userSelectedGridSize = prompt("What's the new grid size?");
+
+    if (userSelectedGridSize>0&&userSelectedGridSize<100) {
+        gridCellsEls=document.querySelectorAll(".grid-cell");
+        gridCellsEls.forEach((gridEl)=>{
+        containerEl.removeChild(gridEl);
+        });
+        containerEl.style=`grid-template-columns:repeat(${userSelectedGridSize},1fr)`;
+        for (let i = 0; i < (userSelectedGridSize**2); i++) {
+            const divAppendEl = document.createElement("div");
+            divAppendEl.classList.add("grid-cell");
+            divAppendEl.style=`height:${90/userSelectedGridSize}vh`;
+            divAppendEl.addEventListener("mouseover",(event)=>{
+                event.target.style.backgroundColor="#ff69b4";
+            })
+            containerEl.appendChild(divAppendEl);
+        }
+    } else {
+        alert("Please select size between 0 and 100")
+    }
 })
